@@ -1,0 +1,39 @@
+{
+  "name": "gulp-clean",
+  "version": "0.0.1",
+  "description": "A gulp plugin for cleaning",
+  "keywords": [
+    "gulpplugin",
+    "gulp",
+    "clean"
+  ],
+  "homepage": "https://github.com/peter-vilja/gulp-clean",
+  "bugs": "https://github.com/peter-vilja/gulp-clean/issues",
+  "author": {
+    "name": "Peter Vilja",
+    "email": "",
+    "url": "https://github.com/peter-vilja"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/peter-vilja/gulp-clean.git"
+  },
+  "scripts": {
+    "test": "mocha tests.js"
+  },
+  "dependencies": {
+    "rimraf": "~2.2.5",
+    "event-stream": "~3.0.20",
+    "gulp-util": "~2.2.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.16.1",
+    "chai": "~1.8.1"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}
