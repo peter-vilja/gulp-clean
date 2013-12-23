@@ -26,6 +26,8 @@ After using gulp-clean the stream still contains the app/tmp and it can be used 
 
 This Changelog follows [Semantic Versioning](http://semver.org).
 
+* **0.1.1**
+      * Improved documentation.
 * **0.1.0**
       * Possibility to remove files and folders from given paths.
       * Don't remove current working directory.
