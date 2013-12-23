@@ -2,7 +2,7 @@
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/gulp-clean)
+Install with [npm](https://npmjs.org/package/gulp-clean).
 
 ```
 npm install --save-dev gulp-clean
@@ -20,14 +20,16 @@ gulp.task('default', function() {
 });
 ```
 
-After cleaning stream still contains the app/tmp and it can be used for example for moving the content to different location
+After using gulp-clean the stream still contains the app/tmp and it can be used i.e. for moving the content to different location.
 
 ## Changelog
 
-This Changelog follows Semantic Versioning http://semver.org
+This Changelog follows [Semantic Versioning](http://semver.org).
 
 * **0.1.0**
-      * Possibility to clean files and folders from given paths.
+      * Possibility to remove files and folders from given paths.
+      * Don't remove current working directory.
+      * Don't remove anything from outside the current working directory.
 
 ## License
 
