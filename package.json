@@ -1,11 +1,9 @@
 {
   "name": "gulp-clean",
-  "version": "0.0.1",
-  "description": "A gulp plugin for cleaning",
+  "version": "0.1.0",
+  "description": "A gulp plugin for removing files and folders.",
   "keywords": [
-    "gulpplugin",
-    "gulp",
-    "clean"
+    "gulpplugin"
   ],
   "homepage": "https://github.com/peter-vilja/gulp-clean",
   "bugs": "https://github.com/peter-vilja/gulp-clean/issues",
