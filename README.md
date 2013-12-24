@@ -30,6 +30,9 @@ For safety only files and folders under the current working directory can be rem
 
 This Changelog follows [Semantic Versioning](http://semver.org).
 
+* **0.1.2**
+	  * Better documentation.
+	  * Fixed a bug in tests.
 * **0.1.1**
       * Improved documentation.
 * **0.1.0**
