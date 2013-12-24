@@ -1,4 +1,6 @@
 # [gulp](https://github.com/wearefractal/gulp)-clean
+[![Build Status](https://secure.travis-ci.org/peter-vilja/gulp-clean.png?branch=master)](https://travis-ci.org/peter-vilja/gulp-clean)
+[![NPM version](https://badge.fury.io/js/gulp-clean.png)](http://badge.fury.io/js/gulp-clean)
 
 ## Install
 
