@@ -7,12 +7,11 @@ var clean = require('./');
 var chai = require('chai');
 var expect = chai.expect;
 
-describe('clean plugin', function () {
+describe('gulp-clean plugin', function () {
 
   before(function () {
-    fs.exists('tmp', function (exists) {
-      if (!exists) { fs.mkdirSync('tmp'); }
-    });
+    var exists = fs.existsSync('tmp');
+    if (!exists) { fs.mkdirSync('tmp'); }
   });
 
   function createTree(callback) {
