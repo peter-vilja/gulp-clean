@@ -1,6 +1,6 @@
-# [gulp](https://github.com/wearefractal/gulp)-clean
-[![Build Status](https://secure.travis-ci.org/peter-vilja/gulp-clean.png?branch=master)](https://travis-ci.org/peter-vilja/gulp-clean)
-[![NPM version](https://badge.fury.io/js/gulp-clean.png)](http://badge.fury.io/js/gulp-clean)
+# [gulp](https://github.com/wearefractal/gulp)-clean [![Build Status](https://secure.travis-ci.org/peter-vilja/gulp-clean.png?branch=master)](https://travis-ci.org/peter-vilja/gulp-clean) [![NPM version](https://badge.fury.io/js/gulp-clean.png)](http://badge.fury.io/js/gulp-clean)
+
+> Removes files and folders.
 
 ## Install
 
@@ -23,6 +23,8 @@ gulp.task('default', function() {
 ```
 
 After using gulp-clean the stream still contains the app/tmp and it can be used i.e. for moving the content to different location.
+
+For safety only files and folders under the current working directory can be removed.
 
 ## Changelog
 
