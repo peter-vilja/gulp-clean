@@ -24,14 +24,28 @@ gulp.task('default', function() {
 
 After using gulp-clean the stream still contains the app/tmp and it can be used i.e. for moving the content to different location.
 
-For safety only files and folders under the current working directory can be removed.
+```js
+var gulp = require('gulp');
+var clean = require('gulp-clean');
+
+gulp.task('default', function() {
+	gulp.src(['app/tmp/index.js'])
+		.pipe(clean());
+		.pipe(gulp.dest('dist'));
+});
+```
+
+#### For safety only files and folders under the current working directory can be removed.
 
 ## Changelog
 
 This Changelog follows [Semantic Versioning](http://semver.org).
 
+* **0.1.3**
+	  * Improved documentation.
+	  * Rewrote tests.
 * **0.1.2**
-	  * Better documentation.
+	  * Improved documentation.
 	  * Fixed a bug in tests.
 * **0.1.1**
       * Improved documentation.
