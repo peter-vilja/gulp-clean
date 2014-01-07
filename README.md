@@ -36,9 +36,7 @@ gulp.task('default', function() {
 });
 ```
 
-Files and folders can be removed outside the current working directory with option force set to true.
-
-#### For safety only files and folders under the current working directory can be removed.
+#### For safety files and folders outside the current working directory can be removed only with option force set to true.
 
 ## Changelog
 
