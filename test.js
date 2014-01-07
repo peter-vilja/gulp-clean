@@ -31,7 +31,7 @@ describe('gulp-clean plugin', function () {
     });
   }
 
-  it('removes file', function (done) {
+  it('removes a file', function (done) {
     var stream = clean();
     var content = 'testing';
     fs.writeFile('tmp/test.js', content, function () {
@@ -53,7 +53,7 @@ describe('gulp-clean plugin', function () {
     });
   });
 
-  it('removes directory', function (done) {
+  it('removes a directory', function (done) {
     fs.mkdir('tmp/test', function () {
       var stream = clean();
 
@@ -74,7 +74,7 @@ describe('gulp-clean plugin', function () {
     });
   });
 
-  it('removes all from tree', function (done) {
+  it('removes all from the tree', function (done) {
     createTree(function () {
       var stream = clean();
 
@@ -98,7 +98,7 @@ describe('gulp-clean plugin', function () {
     });
   });
 
-  it('cannot remove current working directory', function (done) {
+  it('cannot remove the current working directory', function (done) {
     var stream = clean();
 
     stream.on('end', function () {
@@ -116,7 +116,7 @@ describe('gulp-clean plugin', function () {
     stream.end();
   });
 
-  it('cannot delete anything outside working directory', function (done) {
+  it('cannot delete anything outside the current working directory', function (done) {
     var stream = clean();
 
     if (!fs.existsSync('../secrets')) { fs.mkdirSync('../secrets'); }
@@ -131,6 +131,48 @@ describe('gulp-clean plugin', function () {
     stream.write(new gutil.File({
       cwd: path.resolve(cwd + '..'),
       path: path.resolve(cwd + '/../secrets/')
+    }));
+
+    stream.end();
+  });
+
+  it('cannot delete a folder outside the current working directory', function (done) {
+    var stream = clean();
+
+    if (!fs.existsSync('../gulp-cleanTemp')) { fs.mkdirSync('../gulp-cleanTemp'); }
+
+    stream.on('end', function () {
+      fs.exists('../gulp-cleanTemp', function (exists) {
+        expect(exists).to.be.true;
+        fs.unlink('../gulp-cleanTemp', function () {
+          done();
+        });
+      });
+    });
+
+    stream.write(new gutil.File({
+      cwd: path.resolve(cwd + '..'),
+      path: path.resolve(cwd + '/../gulp-cleanTemp/')
+    }));
+
+    stream.end();
+  });
+
+  it('can delete contents outside the current working directory with option force true', function (done) {
+    var stream = clean({force: true});
+
+    if (!fs.existsSync('../gulp-cleanTemp')) { fs.mkdirSync('../gulp-cleanTemp'); }
+
+    stream.on('end', function () {
+      fs.exists('../gulp-cleanTemp', function (exists) {
+        expect(exists).to.be.false;
+        done();
+      });
+    });
+
+    stream.write(new gutil.File({
+      cwd: path.resolve(cwd + '..'),
+      path: path.resolve(cwd + '/../gulp-cleanTemp/')
     }));
 
     stream.end();

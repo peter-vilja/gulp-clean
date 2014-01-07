@@ -3,15 +3,15 @@ var rimraf = require('rimraf');
 var es = require('event-stream');
 var gutil = require('gulp-util');
 
-module.exports = function () {
+module.exports = function (options) {
 	return es.map(function (file, cb) {
-    // Relative paths are already resolved by the gulp
+    // Paths are resolved by gulp
     var filepath = file.path;
     var cwd = file.cwd;
-    var starts = new RegExp('^' + cwd);
+    var starts = new RegExp('^' + cwd + '/');
 
     // Prevent mistakes with paths
-    if (starts.test(filepath) && filepath !== cwd) {
+    if (starts.test(filepath) && filepath !== cwd || (options ? options.force : false)) {
       rimraf(filepath, function (error) {
         if (!error) {
           return cb(null, file);

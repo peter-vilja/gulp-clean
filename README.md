@@ -17,10 +17,11 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 
 gulp.task('default', function() {
-	gulp.src(['app/tmp'])
+	gulp.src('app/tmp', {read: false})
 		.pipe(clean());
 });
 ```
+Option read false prevents gulp to read the contents of the file and makes this task a lot faster.
 
 After using gulp-clean the stream still contains the app/tmp and it can be used i.e. for moving the content to different location.
 
@@ -29,11 +30,13 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 
 gulp.task('default', function() {
-	gulp.src(['app/tmp/index.js'])
-		.pipe(clean());
+	gulp.src('app/tmp/index.js', {read: false})
+		.pipe(clean({force: true}));
 		.pipe(gulp.dest('dist'));
 });
 ```
+
+Files and folders can be removed outside the current working directory with option force set to true.
 
 #### For safety only files and folders under the current working directory can be removed.
 
@@ -41,6 +44,9 @@ gulp.task('default', function() {
 
 This Changelog follows [Semantic Versioning](http://semver.org).
 
+* **0.2.0**
+	  * Support for option force, to allow removing files and folders outside the current working directory.
+	  * Fixed a bug, which made it possible to remove files/folders starting with the project's name to be removed outside the current working directory.
 * **0.1.3**
 	  * Improved documentation.
 	  * Rewrote tests.
