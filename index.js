@@ -11,7 +11,7 @@ module.exports = function (options) {
     var starts = new RegExp('^' + cwd + '/');
 
     // Prevent mistakes with paths
-    if (starts.test(filepath) && filepath !== cwd || (options ? options.force : false)) {
+    if (starts.test(filepath) && filepath !== cwd || (options ? (options.force && typeof options.force === 'boolean') : false)) {
       rimraf(filepath, function (error) {
         if (!error) {
           return cb(null, file);
