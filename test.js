@@ -129,7 +129,7 @@ describe('gulp-clean plugin', function () {
     });
 
     stream.write(new gutil.File({
-      cwd: path.resolve(cwd + '..'),
+      cwd: path.resolve(cwd),
       path: path.resolve(cwd + '/../secrets/')
     }));
 
@@ -151,7 +151,7 @@ describe('gulp-clean plugin', function () {
     });
 
     stream.write(new gutil.File({
-      cwd: path.resolve(cwd + '..'),
+      cwd: path.resolve(cwd),
       path: path.resolve(cwd + '/../gulp-cleanTemp/')
     }));
 
@@ -171,7 +171,7 @@ describe('gulp-clean plugin', function () {
     });
 
     stream.write(new gutil.File({
-      cwd: path.resolve(cwd + '..'),
+      cwd: path.resolve(cwd),
       path: path.resolve(cwd + '/../gulp-cleanTemp/')
     }));
 
