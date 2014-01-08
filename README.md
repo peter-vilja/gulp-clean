@@ -42,6 +42,8 @@ gulp.task('default', function() {
 
 This Changelog follows [Semantic Versioning](http://semver.org).
 
+* **0.2.1**
+	  * Type check for force option's value
 * **0.2.0**
 	  * Support for option force, to allow removing files and folders outside the current working directory.
 	  * Fixed a bug, which made it possible to remove files/folders starting with the project's name to be removed outside the current working directory.
