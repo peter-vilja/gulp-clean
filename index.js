@@ -22,10 +22,10 @@ module.exports = function (options) {
       });
     } else if (relative === '') {
       gutil.log('gulp-clean: Cannot delete current working directory. (' + filepath + ')');
-      cb(null, file);
+      return cb(null, file);
     } else {
       gutil.log('gulp-clean: Cannot delete files outside the current working directory. (' + filepath + ')');
-      cb(null, file);
+      return cb(null, file);
     }
   });
 };
