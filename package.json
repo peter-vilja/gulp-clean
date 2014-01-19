@@ -22,12 +22,12 @@
     "test": "mocha test.js"
   },
   "dependencies": {
-    "rimraf": "~2.2.5",
-    "event-stream": "~3.0.20",
-    "gulp-util": "~2.2.0"
+    "rimraf": "~2.2.6",
+    "event-stream": "~3.1.0",
+    "gulp-util": "~2.2.12"
   },
   "devDependencies": {
-    "mocha": "~1.16.1",
+    "mocha": "~1.17.0",
     "chai": "~1.8.1"
   },
   "licenses": [
