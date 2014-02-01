@@ -28,7 +28,7 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 
 gulp.task('default', function () {
-	gulp.src('app/tmp/index.js', {read: false})
+	gulp.src('app/tmp/index.js')
 		.pipe(clean({force: true}));
 		.pipe(gulp.dest('dist'));
 });
