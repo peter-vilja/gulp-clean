@@ -23,8 +23,6 @@ gulp.task('default', function () {
 ```
 Option read false prevents gulp to read the contents of the file and makes this task a lot faster.
 
-After using gulp-clean the stream still contains the app/tmp and it can be used i.e. for moving the content to different location.
-
 ```js
 var gulp = require('gulp');
 var clean = require('gulp-clean');
