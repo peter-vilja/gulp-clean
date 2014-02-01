@@ -10,13 +10,13 @@ Install with [npm](https://npmjs.org/package/gulp-clean).
 npm install --save-dev gulp-clean
 ```
 
-## Example
+## Examples
 
 ```js
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 
-gulp.task('default', function() {
+gulp.task('default', function () {
 	gulp.src('app/tmp', {read: false})
 		.pipe(clean());
 });
@@ -29,14 +29,34 @@ After using gulp-clean the stream still contains the app/tmp and it can be used 
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 
-gulp.task('default', function() {
+gulp.task('default', function () {
 	gulp.src('app/tmp/index.js', {read: false})
 		.pipe(clean({force: true}));
 		.pipe(gulp.dest('dist'));
 });
 ```
 
-#### For safety files and folders outside the current working directory can be removed only with option force set to true.
+##### For safety files and folders outside the current working directory can be removed only with option force set to true.
+
+Clean as a dependency:
+
+```js
+var gulp = require('gulp');
+var clean = require('gulp-clean');
+
+gulp.task('clean-scripts', function () {
+  return gulp.src('app/tmp/*.js', {read: false})
+    .pipe(clean());
+});
+
+gulp.task('scripts', ['clean-scripts'], function () {
+  gulp.src('app/scripts/*.js')
+    .pipe(gulp.dest('app/tmp'));
+});
+
+gulp.task('default', ['scripts']);
+```
+
 
 ## License
 
