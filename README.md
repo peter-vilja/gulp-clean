@@ -21,7 +21,7 @@ gulp.task('default', function () {
 		.pipe(clean());
 });
 ```
-Option read false prevents gulp to read the contents of the file and makes this task a lot faster. If you need the file and it's contents after cleaning in the same stream, do not set read option to false.
+Option read false prevents gulp to read the contents of the file and makes this task a lot faster. If you need the file and it's contents after cleaning in the same stream, do not set the read option to false.
 
 ```js
 var gulp = require('gulp');
