@@ -29,7 +29,7 @@ var clean = require('gulp-clean');
 
 gulp.task('default', function () {
 	gulp.src('app/tmp/index.js')
-		.pipe(clean({force: true}));
+		.pipe(clean({force: true}))
 		.pipe(gulp.dest('dist'));
 });
 ```
