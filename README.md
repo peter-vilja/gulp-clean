@@ -17,7 +17,7 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 
 gulp.task('default', function () {
-	gulp.src('app/tmp', {read: false})
+	return gulp.src('app/tmp', {read: false})
 		.pipe(clean());
 });
 ```
@@ -28,7 +28,7 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 
 gulp.task('default', function () {
-	gulp.src('app/tmp/index.js')
+	return gulp.src('app/tmp/index.js')
 		.pipe(clean({force: true}))
 		.pipe(gulp.dest('dist'));
 });
@@ -55,6 +55,7 @@ gulp.task('scripts', ['clean-scripts'], function () {
 gulp.task('default', ['scripts']);
 ```
 
+Make sure to return the stream so that gulp knows the clean task is [asynchronous](https://github.com/gulpjs/gulp/blob/master/docs/API.md#async-task-support) and waits for it to terminate before starting the dependent one.
 
 ## License
 
