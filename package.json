@@ -22,13 +22,13 @@
     "test": "mocha test.js"
   },
   "dependencies": {
-    "rimraf": "~2.2.6",
-    "gulp-util": "~2.2.12",
+    "rimraf": "^2.2.8",
+    "gulp-util": "^2.2.14",
     "through2": "^0.4.2"
   },
   "devDependencies": {
-    "mocha": "~1.17.0",
-    "chai": "~1.8.1"
+    "mocha": "^1.19.0",
+    "chai": "^1.9.1"
   },
   "engines": {
     "node": ">=0.9"
