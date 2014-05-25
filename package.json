@@ -5,7 +5,8 @@
   "keywords": [
     "gulpplugin",
     "clean",
-    "remove"
+    "remove",
+    "delete"
   ],
   "homepage": "https://github.com/peter-vilja/gulp-clean",
   "bugs": "https://github.com/peter-vilja/gulp-clean/issues",
