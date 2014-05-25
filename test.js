@@ -5,7 +5,9 @@ var path = require('path');
 var gutil = require('gulp-util');
 var clean = require('./');
 var expect = require('chai').expect;
+
 function noop() {}
+
 describe('gulp-clean plugin', function () {
 
   var cwd = process.cwd();
@@ -102,12 +104,19 @@ describe('gulp-clean plugin', function () {
   it('cannot remove the current working directory', function (done) {
     var stream = clean();
 
+    stream.on('error', function () {
+      fs.exists('.', function (exists) {
+        expect(exists).to.be.true;
+      });
+    });
+
     stream.on('end', function () {
       fs.exists('.', function (exists) {
         expect(exists).to.be.true;
         done();
       });
     });
+
     stream.on('data', noop);
     stream.write(new gutil.File({
       cwd: cwd,
@@ -122,13 +131,21 @@ describe('gulp-clean plugin', function () {
 
     if (!fs.existsSync('../secrets')) { fs.mkdirSync('../secrets'); }
 
+    stream.on('error', function () {
+      fs.exists('../secrets', function (exists) {
+        expect(exists).to.be.true;
+      });
+    });
+
     stream.on('end', function () {
       fs.exists('../secrets', function (exists) {
         expect(exists).to.be.true;
         done();
       });
     });
+
     stream.on('data', noop);
+
     stream.write(new gutil.File({
       cwd: path.resolve(cwd),
       path: path.resolve(cwd + '/../secrets/')
@@ -141,7 +158,15 @@ describe('gulp-clean plugin', function () {
     var stream = clean();
 
     if (!fs.existsSync('../gulp-cleanTemp')) { fs.mkdirSync('../gulp-cleanTemp'); }
+
+    stream.on('error', function () {
+      fs.exists('../gulp-cleanTemp', function (exists) {
+        expect(exists).to.be.true;
+      });
+    });
+
     stream.on('data', noop);
+
     stream.on('end', function () {
       fs.exists('../gulp-cleanTemp', function (exists) {
         expect(exists).to.be.true;
