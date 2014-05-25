@@ -5,7 +5,7 @@ var path = require('path');
 var gutil = require('gulp-util');
 var clean = require('./');
 var expect = require('chai').expect;
-
+function noop() {}
 describe('gulp-clean plugin', function () {
 
   var cwd = process.cwd();
@@ -35,6 +35,7 @@ describe('gulp-clean plugin', function () {
     var stream = clean();
     var content = 'testing';
     fs.writeFile('tmp/test.js', content, function () {
+      stream.on('data', noop);
       stream.on('end', function () {
         fs.exists('tmp/test.js', function (exists) {
           expect(exists).to.be.false;
@@ -69,7 +70,7 @@ describe('gulp-clean plugin', function () {
         base: cwd + '/tmp/',
         path: cwd + '/tmp/test/'
       }));
-
+      stream.on('data', noop);
       stream.end();
     });
   });
@@ -87,7 +88,7 @@ describe('gulp-clean plugin', function () {
           });
         });
       });
-
+      stream.on('data', noop);
       stream.write(new gutil.File({
         cwd: cwd,
         base: cwd + '/tmp',
@@ -107,7 +108,7 @@ describe('gulp-clean plugin', function () {
         done();
       });
     });
-
+    stream.on('data', noop);
     stream.write(new gutil.File({
       cwd: cwd,
       path: cwd
@@ -127,7 +128,7 @@ describe('gulp-clean plugin', function () {
         done();
       });
     });
-
+    stream.on('data', noop);
     stream.write(new gutil.File({
       cwd: path.resolve(cwd),
       path: path.resolve(cwd + '/../secrets/')
@@ -140,7 +141,7 @@ describe('gulp-clean plugin', function () {
     var stream = clean();
 
     if (!fs.existsSync('../gulp-cleanTemp')) { fs.mkdirSync('../gulp-cleanTemp'); }
-
+    stream.on('data', noop);
     stream.on('end', function () {
       fs.exists('../gulp-cleanTemp', function (exists) {
         expect(exists).to.be.true;
@@ -162,7 +163,7 @@ describe('gulp-clean plugin', function () {
     var stream = clean({force: true});
 
     if (!fs.existsSync('../gulp-cleanTemp')) { fs.mkdirSync('../gulp-cleanTemp'); }
-
+    stream.on('data', noop);
     stream.on('end', function () {
       fs.exists('../gulp-cleanTemp', function (exists) {
         expect(exists).to.be.false;

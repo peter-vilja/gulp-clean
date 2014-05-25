@@ -1,11 +1,11 @@
 'use strict';
 var rimraf = require('rimraf');
-var es = require('event-stream');
+var through = require('through2').obj;
 var gutil = require('gulp-util');
 var path = require('path');
 
 module.exports = function (options) {
-  return es.map(function (file, cb) {
+  return through(function (file, _, cb) {
     // Paths are resolved by gulp
     var filepath = file.path;
     var cwd = file.cwd;
