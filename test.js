@@ -2,8 +2,8 @@
 'use strict';
 var fs = require('fs');
 var path = require('path');
-var gutil = require('gulp-util');
-var clean = require('./');
+var utils = require('./utils');
+var clean = require('./index');
 var expect = require('chai').expect;
 
 function noop() {}
@@ -45,7 +45,7 @@ describe('gulp-clean plugin', function () {
         });
       });
 
-      stream.write(new gutil.File({
+      stream.write(new utils.File({
         cwd: cwd,
         base: cwd + '/tmp/',
         path: cwd + '/tmp/test.js',
@@ -67,7 +67,7 @@ describe('gulp-clean plugin', function () {
         });
       });
 
-      stream.write(new gutil.File({
+      stream.write(new utils.File({
         cwd: cwd,
         base: cwd + '/tmp/',
         path: cwd + '/tmp/test/'
@@ -91,7 +91,7 @@ describe('gulp-clean plugin', function () {
         });
       });
       stream.on('data', noop);
-      stream.write(new gutil.File({
+      stream.write(new utils.File({
         cwd: cwd,
         base: cwd + '/tmp',
         path: cwd + '/tmp/tree/'
@@ -118,7 +118,7 @@ describe('gulp-clean plugin', function () {
     });
 
     stream.on('data', noop);
-    stream.write(new gutil.File({
+    stream.write(new utils.File({
       cwd: cwd,
       path: cwd
     }));
@@ -146,7 +146,7 @@ describe('gulp-clean plugin', function () {
 
     stream.on('data', noop);
 
-    stream.write(new gutil.File({
+    stream.write(new utils.File({
       cwd: path.resolve(cwd),
       path: path.resolve(cwd + '/../secrets/')
     }));
@@ -176,7 +176,7 @@ describe('gulp-clean plugin', function () {
       });
     });
 
-    stream.write(new gutil.File({
+    stream.write(new utils.File({
       cwd: path.resolve(cwd),
       path: path.resolve(cwd + '/../gulp-cleanTemp/')
     }));
@@ -196,7 +196,7 @@ describe('gulp-clean plugin', function () {
       });
     });
 
-    stream.write(new gutil.File({
+    stream.write(new utils.File({
       cwd: path.resolve(cwd),
       path: path.resolve(cwd + '/../gulp-cleanTemp/')
     }));
